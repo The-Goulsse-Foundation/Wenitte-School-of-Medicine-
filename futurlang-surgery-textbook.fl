@@ -1,0 +1,129 @@
+# Surgical Best Practices in First-Order Logic
+
+## Notation
+
+**Symbols:** ∀ all, ∃ exists, ∧ and, ∨ or, ¬ not, → implies, ↔ iff, ≺ strictly before, ⊢ is recorded as. Subscripts like t_inc mean "time of incision".
+
+**Domains:** x = team member, p = patient, s = procedure, o = object, k = count item, e = event, π = protocol.
+
+---
+
+**1. Sterile technique**
+- ∀x (OpTeam(x) → [Scrub₅(x) ∧ SterileDry(x)] ≺ [Gown(x) ∧ Glove(x)])
+- ∀o (FieldEstablished ∧ ¬Sterile(o) → ¬Crosses(o, Field))
+- ∀b (Breach(b) → [Recognize(b) ∧ Announce(b) ∧ Correct(b)] ≺ Continue(s))
+
+**2. Informed consent**
+- ∀p,s (Operate(s,p) → Consent(p,s) ≺ Sedate(p))
+- Consent(p,s) → TwoWayDiscussion ∧ Covers(s, {Operation, Benefits, Alternatives, Risks}) ∧ ¬Coerced ∧ UnderstandableLanguage ∧ Signed(p ∨ LAR(p))
+
+**3. Surgical timeout**
+- ∀s Mandatory(Timeout(s)) ∧ Timeout(s) immediately-before Incision(s)
+- Timeout(s) → ∀x [State(x, Name ∧ Role)] ∧ Confirm({Identity, Procedure, Site, Imaging, Implants})
+- Discrepancy → Halt(s) until Resolved
+
+**4. Safety checklist**
+- ∀φ ∈ {PreInduction, PreIncision, PreExit} (Complete(φ) ∧ ∃x Leads(x,φ) ∧ ∀x VerbalConfirm(x,φ))
+- Complete(Checklist) → ⊢ PermanentOperativeRecord
+
+**5. Antibiotic prophylaxis**
+- ∀a (Prophylaxis(a) → TherapeuticLevel(a, t_inc))
+- CleanContaminated(s) → SingleDoseSufficient
+- Redose(a) ↔ OpTime > HalfLife(a) ∨ SubstantialBloodLoss
+
+**6. Surgical hand hygiene**
+- RemoveJewelry ≺ Scrub({Fingers, Hands, Forearms}, Antiseptic)
+- ∀t (Scrub-end ≤ t < Gown ∧ Glove → Elevated(Hands,t) ∧ AwayFromBody(Hands,t))
+
+**7. Skin preparation**
+- Apply(BroadSpectrumAntiseptic, ConcentricFrom(Incision, Outward))
+- CompletelyDry ≺ Drape
+- AlcoholBased → DryingReduces(FireRisk)
+
+**8. Sterile draping**
+- ∀d (Apply(d) → Direction(d) = IncisionOutward ∧ ¬Direction(d) = PeripheryInward)
+- ∀d (Secured(d) ∧ ¬Shifts(d)) ∧ Isolates(Field) ∧ PreservesAccess(Team)
+
+**9. Counts**
+- ∀k ∈ {Instrument, Sponge, Needle}, ∀m ∈ {PreIncision, ClosureStart, FinalSkin} Count(k,m)
+- CountDiscrepancy → ImmediateSearch({Field, Wound, Drapes}) ≺ Leaves(p)
+
+**10. Positioning**
+- Position(p) → OptimalExposure ∧ Protects({PressurePoints, Nerves, Circulation}) ∧ Padded ∧ Secured ∧ ¬ExcessTension
+- Confirms(Anesthesiologist, Ventilation ∧ Monitoring uncompromised)
+
+**11. Temperature**
+- ∀t (Periop(t) → 36 ≤ Temp(p,t) ≤ 37) via {ActiveWarming, WarmedIV, RoomControl}
+- Hypothermia → ↑Infection ∧ ↑Coagulopathy ∧ ↑CardiacEvents
+- Mandatory(ContinuousCoreTempMonitoring)
+
+**12. Fluid and blood**
+- Crystalloid(p) ≤ Required(Euvolemia, p)
+- TransfusionThreshold(p) = f(Physiology(p)) ∧ ¬TransfusionThreshold = FixedHb
+
+**13. VTE prophylaxis**
+- Mechanical(p) ≺ Induction(p)
+- Pharmacologic(p) begins Postop ∧ Hemostasis(p)
+- Intensity(p), Duration(p) = g(RiskStratum(p))
+
+**14. Wound closure**
+- Closure is Layered ∧ Technique, Material = f(TissueType, Tension)
+- ¬ExcessiveForce ∧ ¬DeadSpace ∧ Approximated(SkinEdges) → PrimaryHealing ∧ MinimalScar
+
+**15. Dressings**
+- Dressing protects(Incision) ∧ Allows(Inspection for {Infection, Hematoma})
+- Occlusive(Dressing) → Undisturbed([0, 24–48h]) unless Saturated ∨ ClinicalConcern
+
+**16. Postoperative monitoring**
+- Continuous Assess({Vitals, UrineOutput, PainScores, SiteAppearance})
+- EarlyRecognition(Deterioration) → RapidIntervention → ↓MajorComplications
+
+**17. Multimodal analgesia**
+- Regimen = Regional ∧ NonOpioidSystemic ∧ LimitedOpioid → ↓RespDepression ∧ ↓Ileus
+- ∀day Review(Regimen) ∧ Adjust(Regimen, Response(p))
+
+**18. Early mobilization**
+- MedicallyFeasible(p) → Mobilize(p) within hours of Emergence(p)
+- Ambulation → ↓Thromboembolism ∧ ↓Ileus ∧ ↑RecoverySpeed
+
+**19. Nutrition**
+- GIFunction(p) → Initiate(Nutrition, p)
+- Prefer(ProteinRich ∧ (Oral ∨ Enteral))
+- Parenteral(p) ↔ GutUnusable(p, Prolonged)
+
+**20. Infection-control bundle**
+- Bundle = PreopBathing ∧ HairRemoval ∧ AntibioticTiming ∧ GlycemicControl ∧ Normothermia
+- HairRemoval → Necessary ∧ ByClipping
+- ∀e ∈ Bundle Audited(e)
+
+**21. Team communication**
+- ∀m (Critical(m) → SpokenAloud(m) ∧ Confirmed(Receiver, m) ∧ Documented(m))
+- Handoff uses StandardTool (e.g., SBAR) ∧ ClosedLoop
+
+**22. Incident reporting**
+- Mandatory(Report) ∧ NonPunitive(Report)
+- ∀e (NearMiss(e) ∨ AdverseEvent(e) → Entered(e, ConfidentialSystem) within 24h ∧ Reviewed(e, MultidisciplinaryCommittee) ∧ Yields(e, SystemImprovement) ∧ ¬IndividualBlame)
+
+**23. Evidence-based practice**
+- ∀π (Protocol(π) → Traceable(π, CurrentHighQualityEvidence ∨ InstitutionalData))
+- Review(π) annually ∧ (SuperiorOutcomes(NewEvidence, π) → Revise(π))
+
+**24. Quality indicators**
+- ∀i ∈ {SSIRate, UnplannedReturnToOR, Mortality₃₀} (ContinuouslyTracked(i) ∧ Benchmarked(i, National))
+- TransparentFeedback → IterativeImprovement
+
+**25. Patient-centered care**
+- ∀d (Decision(d) → Centers(d, {Values(p), Preferences(p), Culture(p)}))
+- SharedDecisionMaking holds across {Periop, DischargePlanning, Rehab}
+
+**26. Minimally invasive approach**
+- Equivalent(Outcome(MIS), Outcome(Open)) ∧ ↓TissueTrauma(MIS) → Select(MIS)
+- Convert(MIS → Open) → ¬Failure ∧ JudgmentIn(BestInterest(p))
+
+**27. ERAS pathways**
+- ERAS = PreopOptimization ∧ OpioidSparingAnesthesia ∧ EarlyFeeding ∧ StructuredMobilization (single coordinated plan)
+- Adherence(ERAS) → ↓LengthOfStay ∧ ↓Complications ∧ ¬↑Readmissions
+
+---
+
+**Caveats:** Temporal constraints use ≺ rather than a full temporal logic, and quantities like "within hours" or "24–48h" are kept as bounds rather than formalized. If you want a stricter form, I can redo these in temporal (LTL) or deontic logic, where "must," "may," and "never" become explicit operators (O, P, F).
