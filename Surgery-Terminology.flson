@@ -1,0 +1,56 @@
+futurlang:surj, English:surgery, surgerylang:chirurgia
+futurlang:opra, English:operation, surgerylang:operatio
+futurlang:kir, English:surgeon, surgerylang:chirurg
+futurlang:incis, English:incision, surgerylang:incisio
+futurlang:anest, English:anesthesia, surgerylang:anaesthes
+futurlang:anestik, English:anesthetic, surgerylang:anaesthetik
+futurlang:steril, English:sterilization, surgerylang:sterilisatio
+futurlang:sutur, English:suture, surgerylang:sutura
+futurlang:skal, English:scalpel, surgerylang:scalpell
+futurlang:operat, English:operating room, surgerylang:operakamer
+futurlang:proced, English:procedure, surgerylang:procedur
+futurlang:preop, English:preoperative, surgerylang:praeoperativ
+futurlang:postop, English:postoperative, surgerylang:postoperativ
+futurlang:resek, English:resection, surgerylang:resectio
+futurlang:transplant, English:transplantation, surgerylang:transplantatio
+futurlang:biops, English:biopsy, surgerylang:biopsia
+futurlang:endoskop, English:endoscopy, surgerylang:endoscopia
+futurlang:lapar, English:laparoscopy, surgerylang:laparoscopia
+futurlang:artroskop, English:arthroscopy, surgerylang:arthroscopia
+futurlang:angioplast, English:angioplasty, surgerylang:angioplastia
+futurlang:appendekt, English:appendectomy, surgerylang:appendectomia
+futurlang:mastekt, English:mastectomy, surgerylang:mastectomia
+futurlang:histerekt, English:hysterectomy, surgerylang:hysterectomia
+futurlang:prostatekt, English:prostatectomy, surgerylang:prostatectomia
+futurlang:kraniotom, English:craniotomy, surgerylang:craniotomia
+futurlang:torakotom, English:thoracotomy, surgerylang:thoracotomia
+futurlang:laparotom, English:laparotomy, surgerylang:laparotomia
+futurlang:hernioraf, English:hernia repair, surgerylang:hernioraphia
+futurlang:rekonstrukt, English:reconstructive surgery, surgerylang:reconstructiva
+futurlang:plastik, English:plastic surgery, surgerylang:plastica
+futurlang:ortoped, English:orthopedic surgery, surgerylang:orthopaedica
+futurlang:neurokir, English:neurosurgery, surgerylang:neurochirurgia
+futurlang:kardikir, English:cardiac surgery, surgerylang:cardiochirurgia
+futurlang:vaskularkir, English:vascular surgery, surgerylang:vasculochirurgia
+futurlang:traumakir, English:trauma surgery, surgerylang:traumachirurgia
+futurlang:pediakir, English:pediatric surgery, surgerylang:paedochirurgia
+futurlang:onkokir, English:surgical oncology, surgerylang:oncochirurgia
+futurlang:emergkir, English:emergency surgery, surgerylang:emergentiachirurgia
+futurlang:hemorag, English:hemorrhage, surgerylang:haemorrhagia
+futurlang:infekt, English:infection, surgerylang:infectio
+futurlang:inflam, English:inflammation, surgerylang:inflammatio
+futurlang:komplik, English:complication, surgerylang:complicatio
+futurlang:skar, English:scar, surgerylang:cicatrix
+futurlang:edem, English:swelling, surgerylang:oedema
+futurlang:drain, English:drainage, surgerylang:drainatio
+futurlang:implant, English:implant, surgerylang:implantum
+futurlang:prostet, English:prosthesis, surgerylang:prosthesis
+futurlang:kateter, English:catheter, surgerylang:catheter
+futurlang:transfuz, English:transfusion, surgerylang:transfusio
+futurlang:reanim, English:resuscitation, surgerylang:resuscitatio
+futurlang:rehabil, English:rehabilitation, surgerylang:rehabilitatio
+futurlang:rekov, English:recovery, surgerylang:recuperatio
+futurlang:dolor, English:pain, surgerylang:dolor
+futurlang:analg, English:pain relief, surgerylang:analgesia
+futurlang:hemost, English:hemostasis, surgerylang:haemostasis
+futurlang:transplantorg, English:organ transplant, surgerylang:organotransplantatio
